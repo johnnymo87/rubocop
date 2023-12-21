@@ -785,7 +785,7 @@ end
 
 | Categories
 | `{"module_inclusion"=>["include", "prepend", "extend"]}`
-| 
+|
 
 | ExpectedOrder
 | `module_inclusion`, `constants`, `public_class_methods`, `initializer`, `public_methods`, `protected_methods`, `private_methods`
@@ -4906,6 +4906,50 @@ blah { |
   foo(i)
   bar(i)
 }
+----
+
+== Layout/MultilineChainedMethodCallLineBreak
+
+|===
+| Enabled by default | Safe | Supports autocorrection | Version Added | Version Changed
+
+| Disabled
+| Yes
+| Yes
+| `<next_version>`
+| -
+|===
+
+This cop mandates that in a method chain, if the initial method call extends over multiple lines due to its arguments or an accompanying block, then subsequent methods must commence on new lines, thereby enhancing readability and providing clear demarcation of complex multiline expressions.
+
+=== Examples
+
+[source,ruby]
+----
+# bad
+foo.bar(a,
+        b).baz
+
+# bad
+foo.bar(
+  a,
+  b).baz
+
+# good
+foo.bar(
+  a,
+  b
+)
+.baz
+
+# good
+foo
+  .bar(a, b)
+  .baz
+
+# good
+foo.bar(a, b)
+    .baz
 ----
 
 == Layout/MultilineHashBraceLayout
