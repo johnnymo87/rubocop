@@ -12,7 +12,7 @@ RSpec.describe RuboCop::Cop::Layout::MultilineChainedMethodCallLineBreak, :confi
       expect_correction(<<~RUBY)
         some_method_call(arg1,
                          arg2)
-          .chained_call
+        .chained_call
       RUBY
     end
 
@@ -47,7 +47,7 @@ RSpec.describe RuboCop::Cop::Layout::MultilineChainedMethodCallLineBreak, :confi
         def some_method
           another_method(arg1,
                          arg2)
-            .chained_call
+        .chained_call
         end
       RUBY
     end
@@ -57,7 +57,7 @@ RSpec.describe RuboCop::Cop::Layout::MultilineChainedMethodCallLineBreak, :confi
         def some_method
           another_method(arg1,
                          arg2)
-            .chained_call
+          .chained_call
         end
       RUBY
     end
@@ -77,7 +77,7 @@ RSpec.describe RuboCop::Cop::Layout::MultilineChainedMethodCallLineBreak, :confi
         def self.some_method
           another_method(arg1,
                          arg2)
-            .chained_call
+        .chained_call
         end
       RUBY
     end
@@ -106,7 +106,7 @@ RSpec.describe RuboCop::Cop::Layout::MultilineChainedMethodCallLineBreak, :confi
         block_method do
           perform_action
         end
-          .another_method
+        .another_method
       RUBY
     end
 
